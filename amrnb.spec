@@ -7,12 +7,15 @@ Summary(pl):	Zmiennoprzecinkowy kodek mowy 3GPP AMR
 Name:		amrnb
 Version:	0.0.1
 Release:	1
-License:	unknown
+License:	LGPL
 Group:		Libraries
 Source0:	http://ronald.bitfreak.net/priv/%{name}-%{version}.tar.gz
 # Source0-md5:	c4546d2920cf287847a7286b4dea7472
+Patch0:		%{name}-inttypes.patch
 URL:		http://www.3gpp.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		specflags	-fno-strict-aliasing
 
 %description
 3GPP AMR Floating-point Speech Codec.
@@ -46,10 +49,12 @@ Statyczna biblioteka amrnb.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure \
 	%{?with_static_libs:--enable-static}
+
 %{__make}
 
 %install
