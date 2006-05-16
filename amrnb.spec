@@ -13,8 +13,9 @@ Source0:	http://ronald.bitfreak.net/priv/%{name}-%{version}.tar.gz
 # Source0-md5:	c4546d2920cf287847a7286b4dea7472
 Patch0:		%{name}-inttypes.patch
 URL:		http://www.3gpp.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		specflags	-fno-strict-aliasing
@@ -54,10 +55,11 @@ Statyczna biblioteka amrnb.
 %patch0 -p1
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
-cp -f /usr/share/automake/config.sub .
 %configure \
 	%{?with_static_libs:--enable-static}
 
