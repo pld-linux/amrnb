@@ -6,7 +6,7 @@ Summary:	3GPP AMR Floating-point Speech Codec
 Summary(pl):	Zmiennoprzecinkowy kodek mowy 3GPP AMR
 Name:		amrnb
 Version:	0.0.1
-Release:	1
+Release:	2
 # ??? AUTHORS specifies "License unknown", 26104-610.doc in original sources says:
 # Copyright Notification
 # No part may be reproduced except as authorized by written permission.
