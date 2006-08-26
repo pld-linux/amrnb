@@ -7,13 +7,13 @@ Summary(pl):	Zmiennoprzecinkowy kodek mowy 3GPP AMR
 Name:		amrnb
 Version:	0.0.1
 Release:	2
-# ??? AUTHORS specifies "License unknown", 26104-610.doc in original sources says:
+# AUTHORS specifies "License unknown", 26104-610.doc in original sources says:
 # Copyright Notification
 # No part may be reproduced except as authorized by written permission.
 # The copyright and the foregoing restriction extend to reproduction in all media.
 # (c) 2004, 3GPP Organizational Partners (ARIB, CCSA, ETSI, T1, TTA, TTC).
 # All rights reserved.
-License:	LGPL
+License:	restricted
 Group:		Libraries
 # autotooled version of http://www.3gpp.org/ftp/Specs/latest/Rel-6/26_series/26104-610.zip
 Source0:	http://ronald.bitfreak.net/priv/%{name}-%{version}.tar.gz
