@@ -17,7 +17,7 @@ License:	restricted
 Group:		Libraries
 # autotooled version of http://www.3gpp.org/ftp/Specs/latest/Rel-6/26_series/26104-610.zip
 Source0:	http://ronald.bitfreak.net/priv/%{name}-%{version}.tar.gz
-#NoSource0-md5:	c4546d2920cf287847a7286b4dea7472
+# NoSource0-md5:	c4546d2920cf287847a7286b4dea7472
 NoSource:	0
 Patch0:		%{name}-inttypes.patch
 URL:		http://www.3gpp.org/
