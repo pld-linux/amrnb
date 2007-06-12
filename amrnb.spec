@@ -2,12 +2,12 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
-Summary:	3GPP AMR Floating-point Speech Codec
-Summary(pl.UTF-8):	Zmiennoprzecinkowy kodek mowy 3GPP AMR
+Summary:	3GPP AMR-NB Floating-point Speech Codec
+Summary(pl.UTF-8):	Zmiennoprzecinkowy kodek mowy 3GPP AMR-NB
 Name:		amrnb
-Version:	0.0.1
-Release:	2
-# AUTHORS specifies "License unknown", 26104-610.doc in original sources says:
+Version:	6.1.0.4
+Release:	1
+# 26104-610.doc says:
 # Copyright Notification
 # No part may be reproduced except as authorized by written permission.
 # The copyright and the foregoing restriction extend to reproduction in all media.
@@ -15,24 +15,23 @@ Release:	2
 # All rights reserved.
 License:	restricted
 Group:		Libraries
-# autotooled version of http://www.3gpp.org/ftp/Specs/latest/Rel-6/26_series/26104-610.zip
-Source0:	http://ronald.bitfreak.net/priv/%{name}-%{version}.tar.gz
-# NoSource0-md5:	c4546d2920cf287847a7286b4dea7472
-NoSource:	0
-Patch0:		%{name}-inttypes.patch
+Source0:	http://ftp.penguin.cz/pub/users/utx/amr/%{name}-%{version}.tar.bz2
+# Source0-md5:	f482cdd0584469ba23ff33c6b331acbd
+Source1:	http://www.3gpp.org/ftp/Specs/archive/26_series/26.104/26104-610.zip
+# NoSource1-md5:	cfd9012bff83afdf5ad069b86d3063b6
+NoSource:	1
 URL:		http://www.3gpp.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
+BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		specflags	-fno-strict-aliasing
-
 %description
-3GPP AMR Floating-point Speech Codec.
+3GPP AMR-NB Floating-point Speech Codec.
 
 %description -l pl.UTF-8
-Zmiennoprzecinkowy kodek mowy 3GPP AMR.
+Zmiennoprzecinkowy kodek mowy 3GPP AMR-NB.
 
 %package devel
 Summary:	Header files for amrnb library
@@ -60,13 +59,11 @@ Statyczna biblioteka amrnb.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
-%{__autoheader}
 %{__automake}
 %configure \
 	%{?with_static_libs:--enable-static}
@@ -87,7 +84,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README
+%doc 26104-610.doc readme.txt
+%doc AUTHORS COPYING ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/amrnb-*
 %attr(755,root,root) %{_libdir}/libamrnb.so.*.*.*
 
 %files devel
