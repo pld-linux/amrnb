@@ -5,7 +5,7 @@
 Summary:	3GPP AMR-NB Floating-point Speech Codec
 Summary(pl.UTF-8):	Zmiennoprzecinkowy kodek mowy 3GPP AMR-NB
 Name:		amrnb
-Version:	7.0.0.0
+Version:	7.0.0.2
 Release:	1
 # 26104-700.doc says:
 # Copyright Notification
@@ -16,7 +16,7 @@ Release:	1
 License:	restricted
 Group:		Libraries
 Source0:	http://ftp.penguin.cz/pub/users/utx/amr/%{name}-%{version}.tar.bz2
-# Source0-md5:	c89d657b75c936a061a8eaf12decadf8
+# Source0-md5:	ab3476a0a058c8f2bf026d484fc8a597
 Source1:	http://www.3gpp.org/ftp/Specs/archive/26_series/26.104/26104-700.zip
 # NoSource1-md5:	e8cedb8d502294ab7833ced0b407d238
 NoSource:	1
@@ -60,6 +60,8 @@ Statyczna biblioteka amrnb.
 %prep
 %setup -q
 
+ln -s %{SOURCE1} .
+
 %build
 %{__libtoolize}
 %{__aclocal} -I m4
@@ -88,6 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/amrnb-*
 %attr(755,root,root) %{_libdir}/libamrnb.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libamrnb.so.3
 
 %files devel
 %defattr(644,root,root,755)
