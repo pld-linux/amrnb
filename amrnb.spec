@@ -5,20 +5,20 @@
 Summary:	3GPP AMR-NB Floating-point Speech Codec
 Summary(pl.UTF-8):	Zmiennoprzecinkowy kodek mowy 3GPP AMR-NB
 Name:		amrnb
-Version:	7.0.0.2
+Version:	10.0.0.0
 Release:	1
-# 26104-700.doc says:
+# 26104-a00.doc says:
 # Copyright Notification
 # No part may be reproduced except as authorized by written permission.
 # The copyright and the foregoing restriction extend to reproduction in all media.
-# (c) 2007, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TTA, TTC).
+# (c) 2011, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TTA, TTC).
 # All rights reserved.
 License:	restricted
 Group:		Libraries
 Source0:	http://ftp.penguin.cz/pub/users/utx/amr/%{name}-%{version}.tar.bz2
-# Source0-md5:	ab3476a0a058c8f2bf026d484fc8a597
-Source1:	http://www.3gpp.org/ftp/Specs/archive/26_series/26.104/26104-700.zip
-# NoSource1-md5:	e8cedb8d502294ab7833ced0b407d238
+# Source0-md5:	b83654e7be037989f61fe87a9a460783
+Source1:	http://www.3gpp.org/ftp/Specs/archive/26_series/26.104/26104-a00.zip
+# NoSource1-md5:	b349da3e27d16d025e8e2a393c634cf9
 NoSource:	1
 URL:		http://www.3gpp.org/
 BuildRequires:	autoconf >= 2.50
@@ -86,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc 26104-700.doc readme.txt
+%doc 26104-a00.doc readme.txt
 %doc AUTHORS COPYING ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/amrnb-*
 %attr(755,root,root) %{_libdir}/libamrnb.so.*.*.*
